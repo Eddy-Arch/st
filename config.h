@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=14:antialias=true:autohint=true";
+static char *font = "Hack-Bold:pixelsize=14:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -97,7 +97,8 @@ unsigned int tabspaces = 8;
 static const char *colorname[] = {
 
   /* 8 normal colors */
-  [0] = "#1c1c1c", /* hard contrast: #1d2021 / soft contrast: #32302f */
+
+  [0] = "#292929", /* red     */
   [1] = "#cc241d", /* red     */
   [2] = "#98971a", /* green   */
   [3] = "#d79921", /* yellow  */
@@ -107,14 +108,14 @@ static const char *colorname[] = {
   [7] = "#a89984", /* white   */
 
   /* 8 bright colors */
-  [8]  = "#1c1c1c", /* hard contr*/
+  [8]  = "#292929", /* hard contr*/
   [9]  = "#cc241d", /* red     */
   [10] = "#98971a", /* green   */
   [11] = "#d79921", /* yellow  */
   [12] = "#504945", /* blue    */
   [13] = "#98971a", /* magenta */
   [14] = "#98971a", /* cyan    */
-  [15] = "#98971a", /* white   */
+  [15] = "#a89984", /* white   */
 };
 
 /*
@@ -178,6 +179,7 @@ static MouseShortcut mshortcuts[] = {
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
 #define TERMMOD (ControlMask|ShiftMask)
+#define EPICMOD (ControlMask)
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
@@ -193,6 +195,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+	{ EPICMOD,            XK_Page_Up,     kscrollup,      {.i = -1} },
+	{ EPICMOD,            XK_Page_Down,   kscrolldown,    {.i = -1} },
 };
 
 /*
